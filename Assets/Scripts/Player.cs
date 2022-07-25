@@ -13,13 +13,11 @@ public class Player : MonoBehaviour
     public int healthPotion;
     public string playerName = "Hero";
 
-    // Start is called before the first frame update
     void Start()
     {
         transform.localScale = scale;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();

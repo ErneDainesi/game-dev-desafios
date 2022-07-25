@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class GeneratorController : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
     public float spawnDelay = 2f;
     public float repeatRate = 2f;
     
-    // Start is called before the first frame update
     void Start()
     {
-        Invoke(nameof(SpawnEnemy), spawnDelay);
+        // Invoke(nameof(SpawnEnemy), spawnDelay);
         InvokeRepeating(nameof(SpawnEnemy), spawnDelay, repeatRate);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -23,6 +21,7 @@ public class GeneratorController : MonoBehaviour
     
     private void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, transform);
+        int enemyPrefab = Random.Range(0, enemyPrefabs.Length);
+        Instantiate(enemyPrefabs[enemyPrefab], transform);
     }
 }

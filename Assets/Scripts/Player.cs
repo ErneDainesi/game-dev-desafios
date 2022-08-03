@@ -37,6 +37,29 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        transform.position += direction * (Time.deltaTime * speed);
+        if (Input.GetKey(KeyCode.W))
+        {
+            MovePlayer(Vector3.forward);
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            MovePlayer(Vector3.back);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            MovePlayer(Vector3.left);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            MovePlayer(Vector3.right);
+        }
+    }
+    
+    private void MovePlayer(Vector3 direction)
+    {
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 }

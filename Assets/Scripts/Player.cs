@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Vector3 direction;
     public int healthPotion;
     public string playerName = "Hero";
+    private float cameraAxisX = 0f;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        RotatePlayer();
         Move();
         TakeDamage();
         UseHealthPotion();
@@ -60,6 +62,12 @@ public class Player : MonoBehaviour
     
     private void MovePlayer(Vector3 direction)
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(speed * Time.deltaTime * direction);
+    }
+
+    private void RotatePlayer()
+    {
+        cameraAxisX += Input.GetAxis("Mouse X");
+        transform.rotation = Quaternion.Euler(0, cameraAxisX, 0);
     }
 }

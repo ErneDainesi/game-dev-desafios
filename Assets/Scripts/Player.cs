@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public int damage;
     public int health;
     public float speed;
-    public Vector3 scale = new Vector3(1f, 1f, 1f);
+    public Vector3 scale = new Vector3(2f, 2f, 2f);
     public Vector3 direction;
     public int healthPotion;
     public string playerName = "Hero";

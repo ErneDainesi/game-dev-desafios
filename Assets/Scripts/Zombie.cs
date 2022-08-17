@@ -15,8 +15,9 @@ public class Zombie : MonoBehaviour
 
     [SerializeField] private ZombieType zombie;
     [SerializeField] private Transform playerTransform;
-    public float lookSpeed = 1f;
-    public float speed = 1f;
+    [SerializeField] private float lookSpeed = 1f;
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private Animator enemyAnimator;
     
     void Start()
     {
@@ -33,13 +34,19 @@ public class Zombie : MonoBehaviour
         switch (zombie)
         {
             case ZombieType.Crawler:
-                Stalk();
-                Crawl();
+                Invoke("CrawlerMove", 2f);
                 break;
             case ZombieType.Stalker:
                 Stalk();
                 break;
         }
+    }
+
+    private void CrawlerMove()
+    { 
+        Stalk();
+        Crawl();
+        enemyAnimator.SetBool("isRun", true);
     }
 
     private void Crawl()
@@ -54,5 +61,13 @@ public class Zombie : MonoBehaviour
     {
         Quaternion newRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
         transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, lookSpeed * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            enemyAnimator.SetBool("isRun", false);
+        }
     }
 }

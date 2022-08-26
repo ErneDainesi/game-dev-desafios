@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 478128620}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,10 +61,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.47967446
   m_Height: 3.87
   m_Direction: 1
-  m_Center: {x: 0, y: 1.78, z: 0}
+  m_Center: {x: 0.0015719535, y: 1.7799838, z: -0.018753527}
 --- !u!114 &478128620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,10 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376d22fec5a93144aba6b730938853a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: 1
+  zombie: 0
   playerTransform: {fileID: 0}
   lookSpeed: 1
   speed: 1
+  enemyAnimator: {fileID: 0}
 --- !u!1001 &3328434851756256840
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static int score;
-    private static int playerHealth;
+    private static int playerHealth = 100;
     public static int Score { get => score; set => score = value; }
     public static int PlayerHealth { get => playerHealth; set => score = playerHealth; }
 

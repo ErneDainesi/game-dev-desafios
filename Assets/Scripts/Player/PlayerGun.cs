@@ -36,4 +36,9 @@ public class PlayerGun : MonoBehaviour
     {
         ammo = 10;
     }
+
+    public void SetWeapon(GameObject newBullet)
+    {
+        bullet = newBullet;
+    }
 }

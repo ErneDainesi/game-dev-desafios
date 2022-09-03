@@ -30,11 +30,13 @@ public class PlayerGun : MonoBehaviour
     {
         Instantiate(bullet, transform.position, transform.rotation);
         ammo--;
+        HudManager.AmmoCount = ammo;
     }
 
     private void Reload()
     {
         ammo = 10;
+        HudManager.AmmoCount = ammo;
     }
 
     public void SetWeapon(GameObject newBullet)
